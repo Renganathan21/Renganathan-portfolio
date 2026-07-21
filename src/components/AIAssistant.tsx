@@ -124,17 +124,26 @@ export default function AIAssistant() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 no-print">
-      {/* Floating Action Button */}
-      {!isOpen && (
+    <>
+      {/* Backdrop overlay to prevent covering details and allow quick dismiss by clicking outside */}
+      {isOpen && (
+        <div
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-[#07090e]/70 backdrop-blur-[2px] z-[45] no-print animate-in fade-in duration-200"
+        />
+      )}
+
+      <div className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[50] no-print transition-all duration-300 ${isOpen ? "left-4 sm:left-auto" : ""}`}>
+        {/* Floating Action Button */}
+        {!isOpen && (
         <button
           id="ai-floating-btn"
           onClick={() => setIsOpen(true)}
-          className="group flex items-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium px-5 py-3.5 rounded-full shadow-lg shadow-blue-900/40 hover:shadow-blue-500/30 transition-all duration-300 scale-100 hover:scale-105 active:scale-95 border border-blue-400/20"
+          className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-medium w-12 h-12 sm:w-auto sm:h-auto sm:px-5 sm:py-3.5 rounded-full shadow-lg shadow-blue-900/40 hover:shadow-blue-500/30 transition-all duration-300 scale-100 hover:scale-105 active:scale-95 border border-blue-400/20 shrink-0"
         >
-          <Sparkles className="w-5 h-5 animate-pulse text-blue-100 group-hover:rotate-12 transition-transform duration-300" />
-          <span className="text-sm font-semibold tracking-wide">Explore Renga's Work</span>
-          <span className="relative flex h-2 w-2">
+          <Sparkles className="w-5 h-5 animate-pulse text-blue-100 group-hover:rotate-12 transition-transform duration-300 shrink-0" />
+          <span className="text-sm font-semibold tracking-wide hidden sm:inline shrink-0">Explore Renga's Work</span>
+          <span className="relative flex h-2 w-2 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-100 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
           </span>
@@ -145,7 +154,7 @@ export default function AIAssistant() {
       {isOpen && (
         <div
           id="ai-chat-panel"
-          className="flex flex-col w-[min(400px,90vw)] h-[min(500px,75vh)] bg-[#111622] border border-slate-800 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-6 duration-300"
+          className="flex flex-col w-full sm:w-[400px] h-[min(500px,75vh)] bg-[#111622] border border-slate-800 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-6 duration-300"
         >
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-800">
@@ -269,6 +278,7 @@ export default function AIAssistant() {
         </div>
       )}
     </div>
+    </>
   );
 }
 

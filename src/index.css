@@ -15,8 +15,12 @@
 }
 
 @layer base {
+  html, body {
+    @apply max-w-full overflow-x-hidden bg-[#07090e] text-slate-100 font-sans antialiased selection:bg-blue-500/30 selection:text-white scroll-smooth;
+  }
+  
   body {
-    @apply bg-[#07090e] text-slate-100 font-sans antialiased selection:bg-blue-500/30 selection:text-white scroll-smooth;
+    @apply max-w-full overflow-x-hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {

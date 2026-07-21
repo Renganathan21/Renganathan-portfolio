@@ -98,7 +98,7 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col relative selection:bg-blue-600/30 selection:text-white">
+    <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col relative selection:bg-blue-600/30 selection:text-white overflow-x-hidden">
       {/* Header Backdrop Accent Glow */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-40 right-1/4 w-[400px] h-[400px] bg-indigo-600/5 rounded-full blur-[100px] pointer-events-none" />
