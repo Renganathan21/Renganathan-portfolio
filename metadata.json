@@ -1,0 +1,6 @@
+{
+  "name": "Renga Nathan - Developer Portfolio",
+  "description": "Interactive developer portfolio and resume for Renga Nathan, featuring an AI Resume Assistant and bento-style design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
