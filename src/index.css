@@ -47,11 +47,11 @@
 
 @layer base {
   html, body {
-    @apply max-w-full overflow-x-hidden bg-theme-bg text-theme-text font-sans antialiased selection:bg-blue-500/30 selection:text-white scroll-smooth transition-colors duration-300;
+    @apply max-w-full overflow-x-clip bg-theme-bg text-theme-text font-sans antialiased selection:bg-blue-500/30 selection:text-white scroll-smooth transition-colors duration-300;
   }
   
   body {
-    @apply max-w-full overflow-x-hidden;
+    @apply max-w-full overflow-x-clip;
   }
   
   h1, h2, h3, h4, h5, h6 {

@@ -115,13 +115,13 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen bg-theme-bg text-theme-text flex flex-col relative selection:bg-blue-600/30 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-theme-bg text-theme-text flex flex-col relative selection:bg-blue-600/30 selection:text-white overflow-x-clip">
       {/* Header Backdrop Accent Glow */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-40 right-1/4 w-[400px] h-[400px] bg-indigo-600/5 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Navigation Bar */}
-      <header className="sticky top-0 z-40 bg-theme-bg/80 backdrop-blur-md border-b border-theme-border no-print">
+      <header className="sticky top-0 z-50 bg-theme-bg/90 backdrop-blur-md border-b border-theme-border shadow-sm no-print">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-900/20 font-display shrink-0">
