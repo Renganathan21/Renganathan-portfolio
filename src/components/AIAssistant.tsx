@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { X, Sparkles, Loader2, RefreshCw, ChevronRight, ArrowRight, CornerDownRight } from "lucide-react";
+import { X, HelpCircle, Loader2, RefreshCw, ChevronRight, ArrowRight, CornerDownRight } from "lucide-react";
 import { ChatMessage } from "../types";
 
 interface InteractiveQA {
@@ -117,7 +117,7 @@ export default function AIAssistant() {
       {
         id: "welcome",
         role: "model",
-        text: "Hello! I am Renga's automated portfolio representative. Click any of the topics below to instantly find specific answers, or scroll directly to my sections!",
+        text: "Hello! I am Renga's portfolio interactive guide. Click any of the frequently asked questions below to instantly find specific answers, or navigate directly to different sections of the portfolio!",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       },
     ]);
@@ -141,8 +141,8 @@ export default function AIAssistant() {
           onClick={() => setIsOpen(true)}
           className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-medium w-12 h-12 sm:w-auto sm:h-auto sm:px-5 sm:py-3.5 rounded-full shadow-lg shadow-blue-900/40 hover:shadow-blue-500/30 transition-all duration-300 scale-100 hover:scale-105 active:scale-95 border border-blue-400/20 shrink-0"
         >
-          <Sparkles className="w-5 h-5 animate-pulse text-blue-100 group-hover:rotate-12 transition-transform duration-300 shrink-0" />
-          <span className="text-sm font-semibold tracking-wide hidden sm:inline shrink-0">Explore Renga's Work</span>
+          <HelpCircle className="w-5 h-5 text-blue-100 group-hover:rotate-12 transition-transform duration-300 shrink-0" />
+          <span className="text-sm font-semibold tracking-wide hidden sm:inline shrink-0">Quick Portfolio FAQ</span>
           <span className="relative flex h-2 w-2 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-100 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
@@ -154,16 +154,16 @@ export default function AIAssistant() {
       {isOpen && (
         <div
           id="ai-chat-panel"
-          className="flex flex-col w-full sm:w-[400px] h-[min(500px,75vh)] bg-[#111622] border border-slate-800 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-6 duration-300"
+          className="flex flex-col w-full sm:w-[400px] h-[min(500px,75vh)] bg-theme-card border border-theme-border rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-6 duration-300"
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-800">
+          <div className="flex items-center justify-between px-4 py-3 bg-theme-input border-b border-theme-border">
             <div className="flex items-center gap-2">
               <div className="p-1.5 bg-blue-500/10 text-blue-400 rounded-lg">
-                <Sparkles className="w-4 h-4 animate-spin-slow" />
+                <HelpCircle className="w-4 h-4 text-blue-400" />
               </div>
               <div>
-                <h3 className="font-semibold text-xs text-white">Renga's Portfolio Guide</h3>
+                <h3 className="font-semibold text-xs text-theme-heading">Interactive FAQ Guide</h3>
                 <span className="text-[10px] text-blue-400 font-mono flex items-center gap-1">
                   Interactive Quick Guide
                 </span>
@@ -173,13 +173,13 @@ export default function AIAssistant() {
               <button
                 onClick={clearChat}
                 title="Reset conversation history"
-                className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-850 transition-colors"
+                className="p-1.5 text-theme-text-muted hover:text-theme-heading rounded-lg hover:bg-theme-input transition-colors"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
               </button>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-850 transition-colors"
+                className="p-1.5 text-theme-text-muted hover:text-theme-heading rounded-lg hover:bg-theme-input transition-colors"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
@@ -187,7 +187,7 @@ export default function AIAssistant() {
           </div>
 
           {/* Messages Body */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#090d16]">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-theme-bg">
             {messages.map((m) => {
               // Parse out custom Action buttons if present in text
               let displayBody = m.text;
@@ -216,7 +216,7 @@ export default function AIAssistant() {
                     className={`px-3.5 py-2.5 rounded-xl text-xs leading-relaxed ${
                       m.role === "user"
                         ? "bg-blue-600 text-white rounded-tr-none"
-                        : "bg-[#161d2b] text-slate-100 border border-slate-800/85 rounded-tl-none"
+                        : "bg-theme-card text-theme-text border border-theme-border rounded-tl-none"
                     }`}
                   >
                     <p className="whitespace-pre-line">{displayBody}</p>
@@ -235,13 +235,13 @@ export default function AIAssistant() {
                       </button>
                     )}
                   </div>
-                  <span className="text-[8px] text-slate-500 mt-1 font-mono">{m.timestamp}</span>
+                  <span className="text-[8px] text-theme-text-muted mt-1 font-mono">{m.timestamp}</span>
                 </div>
               );
             })}
 
             {isLoading && (
-              <div className="flex items-center gap-2 text-slate-400 text-xs px-3 py-2 bg-[#161d2b] border border-slate-800 rounded-xl w-max">
+              <div className="flex items-center gap-2 text-theme-text-muted text-xs px-3 py-2 bg-theme-card border border-theme-border rounded-xl w-max">
                 <Loader2 className="w-3.5 h-3.5 animate-spin text-blue-400" />
                 <span className="text-[11px]">Finding matching response...</span>
               </div>
@@ -250,8 +250,8 @@ export default function AIAssistant() {
           </div>
 
           {/* Quick FAQ Interactive Options (Replacing manual typing form completely) */}
-          <div className="p-3 bg-slate-900 border-t border-slate-800 flex flex-col gap-1.5 shrink-0">
-            <span className="text-[9px] font-bold font-mono text-slate-500 uppercase tracking-wider px-1">
+          <div className="p-3 bg-theme-input border-t border-theme-border flex flex-col gap-1.5 shrink-0">
+            <span className="text-[9px] font-bold font-mono text-theme-text-muted uppercase tracking-wider px-1">
               CHOOSE A TOPIC TO ASK
             </span>
             <div className="max-h-[140px] overflow-y-auto space-y-1.5 pr-1">
@@ -264,12 +264,12 @@ export default function AIAssistant() {
                     disabled={isLoading || alreadyAsked}
                     className={`w-full text-left text-[11px] px-3 py-2 rounded-xl border transition-all flex items-center justify-between gap-2 ${
                       alreadyAsked
-                        ? "bg-slate-950/40 text-slate-500 border-slate-850/50 cursor-not-allowed"
-                        : "bg-[#161d2b] hover:bg-[#1f293d] text-slate-200 hover:text-white border-slate-800/80 hover:border-blue-500/30 active:scale-[0.98]"
+                        ? "bg-theme-bg/40 text-theme-text-muted/60 border-theme-border/50 cursor-not-allowed"
+                        : "bg-theme-card hover:bg-theme-input text-theme-text hover:text-theme-heading border-theme-border hover:border-blue-500/30 active:scale-[0.98]"
                     }`}
                   >
                     <span className="truncate">{faq.question}</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                    <ChevronRight className="w-3.5 h-3.5 text-theme-text-muted shrink-0" />
                   </button>
                 );
               })}

@@ -97,7 +97,7 @@ export default function SkillCluster({ skills }: SkillClusterProps) {
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-medium tracking-wide transition-all shrink-0 ${
                 isActive
                   ? "bg-blue-600/20 text-blue-400 border border-blue-500/40 shadow-sm shadow-blue-500/10"
-                  : "bg-slate-900 text-slate-400 border border-slate-800/80 hover:bg-slate-850 hover:text-slate-200"
+                  : "bg-theme-input text-theme-text-muted border border-theme-border hover:bg-theme-card hover:text-theme-heading"
               }`}
             >
               <IconComponent className="w-3.5 h-3.5" />
@@ -113,7 +113,7 @@ export default function SkillCluster({ skills }: SkillClusterProps) {
           const cat = getSkillCategory(skill);
           
           // Custom tag colors depending on categorized tag
-          let tagColor = "border-slate-800 bg-[#121620] text-slate-300";
+          let tagColor = "border-theme-border bg-theme-input text-theme-text";
           let badgeText = "";
           
           if (cat === "AI") {
@@ -133,11 +133,11 @@ export default function SkillCluster({ skills }: SkillClusterProps) {
           return (
             <div
               key={skill}
-              className={`flex flex-col justify-between p-3 rounded-xl border text-xs font-medium transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-md hover:shadow-slate-950/50 ${tagColor}`}
+              className={`flex flex-col justify-between p-3 rounded-xl border text-xs font-medium transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-md ${tagColor}`}
             >
               <span className="text-[12px]">{skill}</span>
               {badgeText && (
-                <span className="mt-1.5 inline-block w-max text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700/50">
+                <span className="mt-1.5 inline-block w-max text-[9px] font-mono px-1.5 py-0.5 rounded bg-theme-card text-theme-text-muted border border-theme-border">
                   {badgeText}
                 </span>
               )}
