@@ -1,4 +1,7 @@
 import { PortfolioData } from "./types";
+import { calculateExperience } from "./utils/experience";
+
+export const careerExperience = calculateExperience("2023-06-01");
 
 export const DATA: PortfolioData = {
   url: "https://renganathan21.github.io/",
@@ -9,7 +12,7 @@ export const DATA: PortfolioData = {
   description:
     "Full Stack Developer (MERN + Next.js) specializing in scalable web applications, AI-integrated products, and frontend team leadership.",
   summary:
-    "Full Stack Developer with 3+ years of experience designing, building, and deploying scalable web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) and Next.js. Experienced in leading a frontend team, owning features end-to-end from REST API design to production deployment, and collaborating cross-functionally in Agile teams. Skilled in building AI-integrated products, real-time applications with WebSockets, and role-based access control systems, with a track record of improving application performance and team delivery speed.",
+    `Full Stack Developer with ${careerExperience.yearsFormatted} years of experience designing, building, and deploying scalable web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) and Next.js. Experienced in leading a frontend team, owning features end-to-end from REST API design to production deployment, and collaborating cross-functionally in Agile teams. Skilled in building AI-integrated products, real-time applications with WebSockets, and role-based access control systems, with a track record of improving application performance and team delivery speed.`,
   avatarUrl: "https://github.com/Renganathan21.png",
   skills: [
     "JavaScript (ES6+)",
@@ -93,7 +96,7 @@ export const DATA: PortfolioData = {
       title: "Senior Frontend Developer & Frontend Team Lead",
       logoUrl:
         "https://media.licdn.com/dms/image/v2/C4E0BAQGgwwOcpg4iew/company-logo_200_200/company-logo_200_200/0/1630610037076/vivant360_logo?e=1747267200&v=beta&t=jXhwHhDbYQcmeAjalmOZoQpEUcfW6iZabrnRO8Vgj3c",
-      start: "July 2023",
+      start: "June 2023",
       end: "Present",
       description:
         "Lead a frontend team of 10 developers, conducting code reviews, defining UI architecture standards, and mentoring junior engineers, improving sprint delivery consistency by 30%. Architected an AI-powered chatbot for the insurance domain integrating OpenAI APIs and OCR-based document parsing, reducing manual data entry effort by 40%. Designed and integrated multiple third-party and internal REST APIs using Node.js and Express.js with async handling and graceful error recovery. Built a Role-Based Access Control (IAM) module used company-wide for access governance. Developed reusable UI component systems (data tables, dynamic form renderers, inline editing) adopted across multiple product modules. Improved application performance and Lighthouse scores by 96 points through code splitting, lazy loading, and render optimization. Independently deployed and managed frontend and backend builds on production servers, coordinating releases across 2+ concurrent client projects.",

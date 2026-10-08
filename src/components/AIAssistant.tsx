@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { X, HelpCircle, Loader2, RefreshCw, ChevronRight, ArrowRight, CornerDownRight } from "lucide-react";
 import { ChatMessage } from "../types";
+import { careerExperience } from "../data";
 
 interface InteractiveQA {
   question: string;
@@ -10,6 +11,12 @@ interface InteractiveQA {
 }
 
 const FAQ_DATA: InteractiveQA[] = [
+  {
+    question: "How much experience does Renga have?",
+    answer: `Renga has ${careerExperience.yearsFormatted} years (${careerExperience.detailed}) of professional software development experience, having started his career on June 1, 2023. He currently serves as Senior Frontend Developer & Frontend Team Lead at Vivant360 Software Services.`,
+    actionText: "View Timeline & Experience",
+    targetAnchor: "#experience",
+  },
   {
     question: "What is Renga's core technical expertise?",
     answer: "Renga is a highly skilled Full Stack Developer specializing in the MERN Stack (MongoDB, Express.js, React.js, Node.js) and Next.js. He excels in building high-performance, responsive frontends paired with resilient, scalable backend REST APIs.",

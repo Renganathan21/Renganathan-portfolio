@@ -28,7 +28,7 @@ import {
   Moon
 } from "lucide-react";
 
-import { DATA } from "./data";
+import { DATA, careerExperience } from "./data";
 import SkillCluster from "./components/SkillCluster";
 import ProjectCard from "./components/ProjectCard";
 import ResumePDFView from "./components/ResumePDFView";
@@ -194,7 +194,7 @@ export default function App() {
                     <span className="h-1.5 w-1.5 bg-blue-400 rounded-full animate-pulse shrink-0" />
                     Available for Role
                   </span>
-                  <h1 className="text-2xl font-extrabold tracking-tight text-theme-heading mt-1.5 font-display">
+                  <h1 className="text-2xl font-extrabold tracking-tight text-theme-heading mt-1.5 font-display whitespace-nowrap">
                     {DATA.name}
                   </h1>
                   <p className="text-xs text-theme-text-muted leading-relaxed font-light">
@@ -291,8 +291,9 @@ export default function App() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
                   <div className="bg-theme-input border border-theme-border p-4 rounded-2xl space-y-1 text-center sm:text-left">
-                    <span className="text-2xl font-bold text-blue-500 font-mono">3+</span>
+                    <span className="text-2xl font-bold text-blue-500 font-mono">{careerExperience.yearsFormatted}</span>
                     <span className="block text-[11px] text-theme-text-muted font-mono">YEARS EXPERIENCE</span>
+                    <span className="block text-[10px] text-blue-400 font-mono font-medium">{careerExperience.shortDetailed}</span>
                   </div>
                   <div className="bg-theme-input border border-theme-border p-4 rounded-2xl space-y-1 text-center sm:text-left">
                     <span className="text-2xl font-bold text-indigo-400 font-mono">10+</span>
@@ -363,8 +364,9 @@ export default function App() {
                     </div>
                   </div>
                   <div className="flex flex-wrap items-center gap-2 mt-3 sm:mt-0">
-                    <span className="text-[11px] font-mono text-theme-text-muted bg-theme-input border border-theme-border px-3 py-1 rounded-full shrink-0">
-                      {w.start} — {w.end}
+                    <span className="text-[11px] font-mono text-theme-text-muted bg-theme-input border border-theme-border px-3 py-1 rounded-full shrink-0 flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-blue-400" />
+                      {w.start} — {w.end} • {careerExperience.shortDetailed}
                     </span>
                     {w.badges?.map((badge) => (
                       <span

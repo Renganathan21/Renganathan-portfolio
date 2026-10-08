@@ -1,6 +1,7 @@
 import React from "react";
 import { Download, Printer, X, Mail, Phone, MapPin, Globe, Award } from "lucide-react";
 import { PortfolioData } from "../types";
+import { careerExperience } from "../data";
 
 interface ResumePDFViewProps {
   data: PortfolioData;
@@ -98,7 +99,7 @@ export default function ResumePDFView({ data, onClose }: ResumePDFViewProps) {
                       <p className="text-xs text-slate-600 font-medium">{w.company} | {w.location}</p>
                     </div>
                     <span className="text-[10px] font-mono text-slate-500 whitespace-nowrap">
-                      {w.start} — {w.end}
+                      {w.start} — {w.end} ({careerExperience.shortDetailed})
                     </span>
                   </div>
                   <p className="text-xs text-slate-700 leading-relaxed whitespace-pre-line pl-2 border-l-2 border-blue-100">
